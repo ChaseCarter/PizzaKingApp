@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="styles\order.css" />
 		<link rel="stylesheet" type="text/css" href="styles\layout.css" />
 		<script language="javascript" src="scripts/data.js"></script>
+		<script language="javascript" src="scripts/order.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 	</head>
 	<title>
@@ -35,26 +36,24 @@
 			<h2 class="header">Order</h2>
 			<div class="orderInterface">
 			  <div class="row">
-				  <div id="locationSelect" class="input-field col s12">
-					<select>
-					  <option value="" disabled selected>Choose your location</option>
-					  <option value="1">Option 1</option>
-					  <option value="2">Option 2</option>
-					  <option value="3">Option 3</option>
-					</select>
+				  <div class="col s12">
 					<label>Select Location:</label>
-				  </div>
-					<div id="pizzaSelect" class="input-field col s9">
-					<select>
-					  <option value="" disabled selected>Choose a pizza</option>
+					<select id="locationSelect" class="browser-default">
+					<option value="" disabled selected>Choose a location</option>
 					</select>
+				  </div>
+					<div  class="col s9">
 					<label>Select Pizza:</label>
+					<select id="pizzaSelect" class="browser-default">
+					  <option value="" disabled selected>Pick a Location first</option>
+					</select>
+	
 					</div>
 					<div id="pizzaPrice" class="input-field col s2">
-						<label>Pizza Price: <span class="cost">$0.00</span></label>
+						<label>Pizza Price: $<span id="pizzaCost">0.00</span></label>
 					</div>
-					<div id="pizzaPrice" class="input-field col s1">
-						<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+					<div class="input-field col s1">
+						<button id="addPizza" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></button>
 					</div>
 				</div>
 			</div>
@@ -92,14 +91,26 @@
 					</form>
 					<div class="col s6">
 						<div class="row">
-							<div id="priceSubtotals" class="col s12">
-							subtotals
-							</div>
+							<div id="priceSubtotals" class="col s12"></div>
 							<div class="input-field col s7">
 								<input id="coupon" type="text" class="validate">
 								<label for="coupon">Coupon Code</label>
 							</div>
-							<a href="confirmation.html" id="submit" data-target="modal1" class="col s4 right waves-effect waves-light btn-large modal-trigger">Order Now</a>
+							<div class="col s4">
+								<p class="totalPrice"><p>
+								<a href="#modal1" id="submit" data-target="modal1" class="right waves-effect waves-light btn-large modal-trigger">Order Now</a>
+							</div>
+							
+							<div id="modal1" class="modal">
+								<div class="modal-content">
+								  <h4>Order Summary</h4>
+								  <p id="modalText"></p>
+								  <p class="totalPrice"><p>
+								</div>
+								<div class="modal-footer">
+								  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Order</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

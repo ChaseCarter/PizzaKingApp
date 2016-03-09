@@ -3,11 +3,43 @@ $(document).ready(function() {
 	$('.modal-trigger').leanModal();
 
 	for(var i=0; i<menu.Stores.length; i++){
-		var addOption = $('<option></option>').attr("value", "option " + 1).text(menu.Stores[i].StoreName);
+		var addOption = $('<option></option>').val(i).text(menu.Stores[i].StoreName);
 		$('#locationSelect').append(addOption);
 	}
-	$('select').material_select();
 
+	$("#locationSelect").change(function () {
+		var store = $( "#locationSelect option:selected" ).val();
+		$('#pizzaSelect').empty();
+		$('#pizzaSelect').append($('<option></option>').attr('disabled','disabled').attr('selected','selected').text("Choose a pizza"))
+		for(var i=0; i<menu.Stores[store].Menu.length; i++){
+			var addOption = $('<option></option>').val(i).text(menu.Stores[store].Menu[i].PizzaName);
+			$('#pizzaSelect').append(addOption);
+		}
+		subtotals = 0;
+		$('#priceSubtotals').empty();
+		$('#modalText').empty();
+		$('.totalPrice').empty();
+	});
+	
+	$("#pizzaSelect").change(function () {
+		var store = $( "#locationSelect option:selected" ).val();
+		var pizza = $( "#pizzaSelect option:selected" ).val();
+		var price = menu.Stores[store].Menu[pizza].Price;
+		$('#pizzaCost').empty();
+		$('#pizzaCost').append().text(price);
+	});
+	
+	$("#addPizza").click(function(){
+		var store = $( "#locationSelect option:selected" ).val();
+		var pizza = $( "#pizzaSelect option:selected" ).val();
+		var price = menu.Stores[store].Menu[pizza].Price;
+		$('#priceSubtotals').append("<br>" + menu.Stores[store].Menu[pizza].PizzaName + ": " + price);
+		$('#modalText').append("<br>" + menu.Stores[store].Menu[pizza].PizzaName + ": " + price);
+		subtotals += price;
+		$('.totalPrice').empty();
+		$('.totalPrice').append(subtotals);
+		console.log(subtotals);
+	});
 });
 
 var subtotals = 0;
