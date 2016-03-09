@@ -1,4 +1,15 @@
 $(document).ready(function() {
-	$('#modal1').openModal();
-  //$('.modal-trigger').leanModal();
+	$('select').material_select();
+	$('.modal-trigger').leanModal();
+
+	for(var i=0; i<menu.Stores.length; i++){
+		var addOption = $('<option></option>').attr("value", "option " + 1).text(menu.Stores[i].StoreName);
+		$('#locationSelect').append(addOption);
+	}
+	$('select').material_select();
+
 });
+
+var subtotals = 0;
+var menu = jQuery.parseJSON( '{"Stores": [{"StoreName":"Little Roman\'s","Menu": [{"PizzaName":"Cheese", "Price":8.99},{"PizzaName":"Pepperoni", "Price":10.99},{"PizzaName":"Ultimate", "Price":12.99}]},{"StoreName":"Poker Cards","Menu": [{"PizzaName":"Cheese", "Price":8.99},{"PizzaName":"Pepperoni", "Price":10.99},{"PizzaName":"Ultimate", "Price":12.99},{"PizzaName":"Spicy", "Price":11.99},{"PizzaName":"Meatser", "Price":12.99}]},{"StoreName":"The Cicilian\'s","Menu": [{"PizzaName":"Funky Medina", "Price":9.99},{"PizzaName":"Big Green", "Price":9.99},{"PizzaName":"Meat", "Price":8.99},{"PizzaName":"Spicy Meat", "Price":9.99},{"PizzaName":"Stinky", "Price":10.99}]},{"StoreName":"Mike\'s Pies","Menu": [{"PizzaName":"Steak", "Price":11.99},{"PizzaName":"Steak and Cheese", "Price":13.99},{"PizzaName":"Steak and Cheese and Veggies", "Price":14.99}]},{"StoreName":"Hoang\'s Pizzeria","Menu": [{"PizzaName":"Cheese", "Price":7.99},{"PizzaName":"Fish", "Price":9.99},{"PizzaName":"Ultimate Fish", "Price":11.99}]},{"StoreName":"Harry Gary\'s Pizza Pie","Menu": [{"PizzaName":"Harry Gary\'s Pie", "Price":10.99}]},{"StoreName":"Tiny Pizzas","Menu": [{"PizzaName":"Cheesey!", "Price":5.99},{"PizzaName":"Red!", "Price":6.99},{"PizzaName":"Spicy Oink!", "Price":8.99},{"PizzaName":"Oink!", "Price":6.99},{"PizzaName":"Fungi!", "Price":7.99},{"PizzaName":"Tangy!", "Price":6.99},{"PizzaName":"Spicy!", "Price":6.99},{"PizzaName":"Sweet!", "Price":8.99}]},{"StoreName":"Bad JuJu\'s Pizzas","Menu": [{"PizzaName":"Good", "Price":10.99},{"PizzaName":"Bad", "Price":12.99},{"PizzaName":"Ugly", "Price":14.99}]}]}' );
+console.log(menu);
