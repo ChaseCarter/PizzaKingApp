@@ -90,33 +90,31 @@
 					  </div>
 					</form>
 					<div class="col s6">
-						<div class="row">
-							<div id="priceSubtotals" class="col s12"></div>
-							<div class="input-field col s7">
-								<input id="coupon" type="text" class="validate">
-								<label for="coupon">Coupon Code</label>
+						<div id="priceSubtotals" class="col s12"></div>
+						<div class="input-field col s7">
+							<input id="coupon" type="text" class="validate">
+							<label for="coupon">Coupon Code</label>
+						</div>
+						<div class="col s4">
+						<div class="col s12 totalPrice right">Total: $0.00</div>
+						<a href="#modal1" id="submit" data-target="modal1" class="right waves-effect waves-light btn-large modal-trigger">Order Now</a>
+						</div>
+						
+						<div id="modal1" class="modal">
+							<div class="modal-content">
+							  <h4>Order Summary</h4>
+							  <p id="modalText"></p>
+							  <p class="totalPrice">Total: $0.00<p>
 							</div>
-							<div class="col s4">
-								<p class="totalPrice"><p>
-								<a href="#modal1" id="submit" data-target="modal1" class="right waves-effect waves-light btn-large modal-trigger">Order Now</a>
-							</div>
-							
-							<div id="modal1" class="modal">
-								<div class="modal-content">
-								  <h4>Order Summary</h4>
-								  <p id="modalText"></p>
-								  <p class="totalPrice"><p>
-								</div>
-								<div class="modal-footer">
-								  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Order</a>
-								</div>
+							<div class="modal-footer">
+							  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Send Order</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
 		</div>
+			
 	</div>
 							  
 	<footer id="mainFooter" class="page-footer">

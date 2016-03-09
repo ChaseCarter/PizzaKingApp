@@ -4,3 +4,12 @@
 #pizzaPrice label{
 	color: black;
 }
+.buttonMargin{
+	
+	margin-top:100px;
+}
+
+.totalPrice.right{
+	text-align: right;
+	font-weight: bold;
+}
